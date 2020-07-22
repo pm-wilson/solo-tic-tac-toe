@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div>
+      <h1 id="title-area">Patrick's Tic Tac Toe</h1>
+      <h3 id="message-area">Want to play a game?</h3>
+      <div id="score-container">
+        <h4 id="human-score-area">Human Score:</h4>
+        <span id="human-score">0</span>
+        <h4 id="computer-score-area">Computer Score:</h4>
+        <span id="computer-score">0</span>
+      </div>
+    </div>
+    <div id="game-area">
+      <div id="game-board" class="grid-container">
+        <div id="sq0" class="grid-item"></div>
+        <div id="sq1" class="grid-item"></div>
+        <div id="sq2" class="grid-item"></div>
+        <div id="sq3" class="grid-item"></div>
+        <div id="sq4" class="grid-item"></div>
+        <div id="sq5" class="grid-item"></div>
+        <div id="sq6" class="grid-item"></div>
+        <div id="sq7" class="grid-item"></div>
+        <div id="sq8" class="grid-item"></div>
+      </div>
+      <div id="win-line-area">
+        <div
+          id="horizontal-top"
+          class="win-mark horizontal top visibility-hidden"
+        ></div>
+        <div
+          id="horizontal-middle"
+          class="win-mark horizontal middle visibility-hidden"
+        ></div>
+        <div
+          id="horizontal-bottom"
+          class="win-mark horizontal bottom visibility-hidden"
+        ></div>
+        <div
+          id="vertical-left"
+          class="win-mark vertical left visibility-hidden"
+        ></div>
+        <div
+          id="vertical-center"
+          class="win-mark vertical center visibility-hidden"
+        ></div>
+        <div
+          id="vertical-right"
+          class="win-mark vertical right visibility-hidden"
+        ></div>
+        <div
+          id="diagonal-up"
+          class="win-mark diagonal up visibility-hidden"
+        ></div>
+        <div
+          id="diagonal-down"
+          class="win-mark diagonal down visibility-hidden"
+        ></div>
+        <div id="cats-game" class="visibility-hidden">
+          Cat's Game!
+        </div>
+      </div>
+    </div>
+    <script src="./ttt-logic.js"></script>
+    <script src="./ttt-scripts.js"></script>
+    <script src="./ttt-brain.js"></script>
+    <script src="./ttt-gamevars.js"></script>
+  </body>
+</html>
