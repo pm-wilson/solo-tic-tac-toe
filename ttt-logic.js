@@ -23,21 +23,21 @@ function placeComputerMove() {
 
 function computerMark() {
   if (gameVars.computerTurn === true) {
-    return "X";
+    return 'X';
   }
-  return "O";
+  return 'O';
 }
 
 function logComputerWin() {
   gameVars.score.computer++;
-  document.getElementById("computer-score").innerHTML = gameVars.score.computer;
+  document.getElementById('computer-score').innerHTML = gameVars.score.computer;
 }
 
 function getBoardState() {
   var boardState = [];
 
   for (let i = 0; i < 9; i++) {
-    boardState.push(document.getElementById("sq" + i).innerHTML);
+    boardState.push(document.getElementById('sq' + i).innerHTML);
   }
 
   return boardState;
@@ -59,7 +59,7 @@ function getRandomMove() {
 
   //load free moves
   for (let i = 0; i < 9; i++) {
-    if (board[i] === "") {
+    if (board[i] === '') {
       freeMoves.push(i);
     }
   }
@@ -83,7 +83,7 @@ function checkObviousMove() {
 
     if (computerisX) {
       //computer is x check attack
-      if (winConCheck[0] && winConCheck[1] === "X") {
+      if (winConCheck[0] && winConCheck[1] === 'X') {
         return [true, currentWinCon[winConCheck[2]]];
       }
     }
@@ -97,7 +97,7 @@ function checkObviousMove() {
 
     if (computerisX) {
       //computer is x check block
-      if (winConCheck[0] && winConCheck[1] === "O") {
+      if (winConCheck[0] && winConCheck[1] === 'O') {
         return [true, currentWinCon[winConCheck[2]]];
       }
     }
@@ -111,7 +111,7 @@ function checkObviousMove() {
 
     if (computerisX === false) {
       //computer is o check attack
-      if (winConCheck[0] && winConCheck[1] === "O") {
+      if (winConCheck[0] && winConCheck[1] === 'O') {
         return [true, currentWinCon[winConCheck[2]]];
       }
     }
@@ -125,7 +125,7 @@ function checkObviousMove() {
 
     if (computerisX === false) {
       //computer is o check block
-      if (winConCheck[0] && winConCheck[1] === "X") {
+      if (winConCheck[0] && winConCheck[1] === 'X') {
         return [true, currentWinCon[winConCheck[2]]];
       }
     }
@@ -134,21 +134,21 @@ function checkObviousMove() {
 }
 
 function check2of3andBlank(arrayOf3) {
-  //returns if 2 are (x or 0) and one is blank, letter that has the pair, and blank index ex: [true, "X", 1]
+  //returns if 2 are (x or 0) and one is blank, letter that has the pair, and blank index ex: [true, 'X', 1]
   const val1 = arrayOf3[0],
     val2 = arrayOf3[1],
     val3 = arrayOf3[2];
 
-  if (val1 === "") {
-    if (val2 !== "" && val2 === val3) {
+  if (val1 === '') {
+    if (val2 !== '' && val2 === val3) {
       return [true, val2, 0];
     }
-  } else if (val2 === "") {
-    if (val1 !== "" && val1 === val3) {
+  } else if (val2 === '') {
+    if (val1 !== '' && val1 === val3) {
       return [true, val3, 1];
     }
-  } else if (val3 === "") {
-    if (val2 !== "" && val2 === val1) {
+  } else if (val3 === '') {
+    if (val2 !== '' && val2 === val1) {
       return [true, val1, 2];
     }
   }
@@ -156,7 +156,7 @@ function check2of3andBlank(arrayOf3) {
 }
 
 function computerMove() {
-  let currentMove = "sq";
+  let currentMove = 'sq';
   const obviousMove = checkObviousMove(),
     bestMoveMatch = isBestMoveMatchingCurrentBoardState();
 
@@ -167,9 +167,9 @@ function computerMove() {
   } else {
     currentMove += getRandomMove();
   }
-  if (document.getElementById(currentMove).innerHTML === "") {
+  if (document.getElementById(currentMove).innerHTML === '') {
     return currentMove;
   }
-  console.log(currentMove, " is an Illegal move using random");
-  return "sq" + getRandomMove();
+  console.log(currentMove, ' is an Illegal move using random');
+  return 'sq' + getRandomMove();
 }

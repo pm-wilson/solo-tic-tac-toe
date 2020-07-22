@@ -44,14 +44,14 @@ function isInArray(thingToCheck, arrayItMightBeIn) {
 }
 
 function indexToBoardState(index) {
-  //return a board state with "M" at index
+  //return a board state with 'M' at index
   let boardState = [];
 
   for (var i = 0; i < 9; i++) {
     if (i === index) {
-      boardState.push("M");
+      boardState.push('M');
     } else {
-      boardState.push("");
+      boardState.push('');
     }
   }
   return boardState;
@@ -66,14 +66,14 @@ function findUnrotatedIndex(rotationIndex, mapIndex) {
     currentMapIndexState = rotatedMapIndexStates[rotationIndex][0];
 
   for (var i = 0; i < currentMapIndexState.length; i++) {
-    if (currentMapIndexState[i] === "M") {
+    if (currentMapIndexState[i] === 'M') {
       return i;
     }
   }
   console.log(
-    "Find Rotated Index Error, Rotation Index: ",
+    'Find Rotated Index Error, Rotation Index: ',
     rotationIndex,
-    "- Map Index: ",
+    '- Map Index: ',
     mapIndex
   );
 }
@@ -105,63 +105,63 @@ function getUnrotatedBoardStates(currentBoardState) {
     );
 
   //include 4 rotations
-  unRotatedStates.push([currentBoardState, 0, "Current Board State"]);
-  unRotatedStates.push([rotatedThrice, 1, "Unrotated Once"]);
-  unRotatedStates.push([rotatedTwice, 2, "Unrotated Twice"]);
-  unRotatedStates.push([rotatedOnce, 3, "Unrotated Thrice"]);
+  unRotatedStates.push([currentBoardState, 0, 'Current Board State']);
+  unRotatedStates.push([rotatedThrice, 1, 'Unrotated Once']);
+  unRotatedStates.push([rotatedTwice, 2, 'Unrotated Twice']);
+  unRotatedStates.push([rotatedOnce, 3, 'Unrotated Thrice']);
 
   //include extra sideways mirror rotations
-  unRotatedStates.push([mirroredSideways, 4, "Mirrored Sideways"]);
+  unRotatedStates.push([mirroredSideways, 4, 'Mirrored Sideways']);
   unRotatedStates.push([
     mirroredSidewaysRotatedThrice,
     5,
-    "Mirrored Sideways Unrotated Once",
+    'Mirrored Sideways Unrotated Once',
   ]);
   unRotatedStates.push([
     mirroredSidewaysRotatedTwice,
     6,
-    "Mirrored Sideways Unrotated Twice",
+    'Mirrored Sideways Unrotated Twice',
   ]);
   unRotatedStates.push([
     mirroredSidewaysRotatedOnce,
     7,
-    "Mirrored Sideways Unrotated Thrice",
+    'Mirrored Sideways Unrotated Thrice',
   ]);
 
   //include extra up mirror rotations
-  unRotatedStates.push([mirroredUp, 8, "Mirrored Up"]);
+  unRotatedStates.push([mirroredUp, 8, 'Mirrored Up']);
   unRotatedStates.push([
     mirroredUpRotatedThrice,
     9,
-    "Mirrored Up Unrotated Once",
+    'Mirrored Up Unrotated Once',
   ]);
   unRotatedStates.push([
     mirroredUpRotatedTwice,
     10,
-    "Mirrored Up Unrotated Once",
+    'Mirrored Up Unrotated Once',
   ]);
   unRotatedStates.push([
     mirroredUpRotatedOnce,
     11,
-    "Mirrored Up Unrotated Once",
+    'Mirrored Up Unrotated Once',
   ]);
 
   //include extra up and sideways mirror rotations
-  unRotatedStates.push([mirroredBoth, 12, "Mirrored Both"]);
+  unRotatedStates.push([mirroredBoth, 12, 'Mirrored Both']);
   unRotatedStates.push([
     mirroredBothRotatedThrice,
     13,
-    "Mirrored Both Unrotated Once",
+    'Mirrored Both Unrotated Once',
   ]);
   unRotatedStates.push([
     mirroredBothRotatedTwice,
     14,
-    "Mirrored Both Unrotated Twice",
+    'Mirrored Both Unrotated Twice',
   ]);
   unRotatedStates.push([
     mirroredBothRotatedOnce,
     15,
-    "Mirrored Both Unrotated Thrice",
+    'Mirrored Both Unrotated Thrice',
   ]);
   return unRotatedStates;
 }
@@ -193,51 +193,51 @@ function getRotatedBoardStates(currentBoardState) {
     );
 
   //include 4 rotations
-  rotatedStates.push([currentBoardState, 0, "Current Board State"]);
-  rotatedStates.push([rotatedOnce, 1, "Rotated Once"]);
-  rotatedStates.push([rotatedTwice, 2, "Rotated Twice"]);
-  rotatedStates.push([rotatedThrice, 3, "Rotated Thrice"]);
+  rotatedStates.push([currentBoardState, 0, 'Current Board State']);
+  rotatedStates.push([rotatedOnce, 1, 'Rotated Once']);
+  rotatedStates.push([rotatedTwice, 2, 'Rotated Twice']);
+  rotatedStates.push([rotatedThrice, 3, 'Rotated Thrice']);
 
   //include extra sideways mirror rotations
-  rotatedStates.push([mirroredSideways, 4, "Mirrored Sideways"]);
+  rotatedStates.push([mirroredSideways, 4, 'Mirrored Sideways']);
   rotatedStates.push([
     mirroredSidewaysRotatedOnce,
     5,
-    "Mirrored Sideways Rotated Once",
+    'Mirrored Sideways Rotated Once',
   ]);
   rotatedStates.push([
     mirroredSidewaysRotatedTwice,
     6,
-    "Mirrored Sideways Rotated Twice",
+    'Mirrored Sideways Rotated Twice',
   ]);
   rotatedStates.push([
     mirroredSidewaysRotatedThrice,
     7,
-    "Mirrored Sideways Rotated Thrice",
+    'Mirrored Sideways Rotated Thrice',
   ]);
 
   //include extra up mirror rotations
-  rotatedStates.push([mirroredUp, 8, "Mirrored Up"]);
-  rotatedStates.push([mirroredUpRotatedOnce, 9, "Mirrored Up Rotated Once"]);
-  rotatedStates.push([mirroredUpRotatedTwice, 10, "Mirrored Up Rotated Once"]);
-  rotatedStates.push([mirroredUpRotatedThrice, 11, "Mirrored Up Rotated Once"]);
+  rotatedStates.push([mirroredUp, 8, 'Mirrored Up']);
+  rotatedStates.push([mirroredUpRotatedOnce, 9, 'Mirrored Up Rotated Once']);
+  rotatedStates.push([mirroredUpRotatedTwice, 10, 'Mirrored Up Rotated Once']);
+  rotatedStates.push([mirroredUpRotatedThrice, 11, 'Mirrored Up Rotated Once']);
 
   //include extra up and sideways mirror rotations
-  rotatedStates.push([mirroredBoth, 12, "Mirrored Both"]);
+  rotatedStates.push([mirroredBoth, 12, 'Mirrored Both']);
   rotatedStates.push([
     mirroredBothRotatedOnce,
     13,
-    "Mirrored Both Rotated Once",
+    'Mirrored Both Rotated Once',
   ]);
   rotatedStates.push([
     mirroredBothRotatedTwice,
     14,
-    "Mirrored Both Rotated Twice",
+    'Mirrored Both Rotated Twice',
   ]);
   rotatedStates.push([
     mirroredBothRotatedThrice,
     15,
-    "Mirrored Both Rotated Thrice",
+    'Mirrored Both Rotated Thrice',
   ]);
   return rotatedStates;
 }

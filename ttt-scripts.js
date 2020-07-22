@@ -1,6 +1,6 @@
 //event listeners
-document.getElementById("win-line-area").addEventListener("click", startGame);
-document.getElementById("game-board").addEventListener("click", squareClick);
+document.getElementById('win-line-area').addEventListener('click', startGame);
+document.getElementById('game-board').addEventListener('click', squareClick);
 
 //game scripts
 function shuffleArray(a) {
@@ -20,7 +20,7 @@ function startGame() {
     gameVars.gameOn = true;
     updateMessageArea();
     clearBoard();
-    makeInvisible("win-line-area");
+    makeInvisible('win-line-area');
     hideWinnerMarks();
     gameData.winConditions = shuffleArray(gameData.winConditions);
     if (gameVars.computerTurn) {
@@ -31,18 +31,18 @@ function startGame() {
 
 function updateMessageArea() {
   if (gameVars.computerTurn === false) {
-    document.getElementById("message-area").innerHTML =
-      "You are X, click to begin";
+    document.getElementById('message-area').innerHTML =
+      'You are X, click to begin';
   } else {
-    document.getElementById("message-area").innerHTML = "You are O";
+    document.getElementById('message-area').innerHTML = 'You are O';
   }
 }
 
 function clearBoard() {
   for (let i = 0; i < 9; i++) {
-    let currentSq = "sq" + i;
+    let currentSq = 'sq' + i;
 
-    document.getElementById(currentSq).innerHTML = "";
+    document.getElementById(currentSq).innerHTML = '';
   }
 }
 
@@ -54,8 +54,8 @@ function squareClick(e) {
 
   if (
     gameVars.gameOn === true &&
-    document.getElementById(squareClicked).innerHTML === "" &&
-    squareClicked !== "game-board" &&
+    document.getElementById(squareClicked).innerHTML === '' &&
+    squareClicked !== 'game-board' &&
     gameVars.awaitingClick === true
   ) {
     gameVars.awaitingClick = false;
@@ -78,9 +78,9 @@ function squareClick(e) {
 
 function clickMark() {
   if (gameVars.computerTurn === false) {
-    return "X";
+    return 'X';
   }
-  return "O";
+  return 'O';
 }
 
 function checkWinner() {
@@ -89,11 +89,11 @@ function checkWinner() {
   for (let i = 0; i < gameData.winConditions.length; i++) {
     let currentWinCon = gameData.winConditions[i];
     if (
-      boardState[currentWinCon[0]] !== "" &&
+      boardState[currentWinCon[0]] !== '' &&
       boardState[currentWinCon[0]] === boardState[currentWinCon[1]] &&
       boardState[currentWinCon[1]] === boardState[currentWinCon[2]]
     ) {
-      makeVisible("win-line-area");
+      makeVisible('win-line-area');
       makeVisible(currentWinCon[3]);
       return [true, boardState[currentWinCon[0]]];
     }
@@ -102,21 +102,21 @@ function checkWinner() {
 }
 
 function goToWin(winnerMark) {
-  document.getElementById("message-area").innerHTML = winnerMark + " wins!";
+  document.getElementById('message-area').innerHTML = winnerMark + ' wins!';
   gameVars.gameOn = false;
 }
 
 function logPlayerWin() {
   gameVars.score.player++;
-  document.getElementById("human-score").innerHTML = gameVars.score.player;
+  document.getElementById('human-score').innerHTML = gameVars.score.player;
 }
 
 function makeInvisible(id) {
-  document.getElementById(id).classList.add("visibility-hidden");
+  document.getElementById(id).classList.add('visibility-hidden');
 }
 
 function makeVisible(id) {
-  document.getElementById(id).classList.remove("visibility-hidden");
+  document.getElementById(id).classList.remove('visibility-hidden');
 }
 
 function resetGame(winningMark) {
@@ -125,24 +125,24 @@ function resetGame(winningMark) {
   gameVars.currentMove = 0;
   gameVars.gameOn = false;
 
-  if (winningMark === "X" && wasComputerTurn) {
+  if (winningMark === 'X' && wasComputerTurn) {
     //computer wins as x
     gameVars.awaitingClick = false;
     gameVars.computerTurn = true;
-  } else if (winningMark === "O" && wasComputerTurn) {
+  } else if (winningMark === 'O' && wasComputerTurn) {
     //player wins as o
     gameVars.awaitingClick = true;
     gameVars.computerTurn = false;
-  } else if (winningMark === "X" && !wasComputerTurn) {
+  } else if (winningMark === 'X' && !wasComputerTurn) {
     //player wins as x
     gameVars.awaitingClick = true;
     gameVars.computerTurn = false;
-  } else if (winningMark === "O" && !wasComputerTurn) {
+  } else if (winningMark === 'O' && !wasComputerTurn) {
     //computer wins as o
     gameVars.awaitingClick = false;
     gameVars.computerTurn = true;
   } else {
-    console.log("Reset Game Error");
+    console.log('Reset Game Error');
   }
 }
 
@@ -150,9 +150,9 @@ function catWins() {
   const wasComputerTurn = gameVars.computerTurn;
 
   //cats game
-  makeVisible("win-line-area");
-  makeVisible("cats-game");
-  document.getElementById("message-area").innerHTML = "Cats Game!";
+  makeVisible('win-line-area');
+  makeVisible('cats-game');
+  document.getElementById('message-area').innerHTML = 'Cats Game!';
   gameVars.gameOn = false;
   gameVars.currentMove = 0;
 
@@ -168,14 +168,14 @@ function catWins() {
 }
 
 function hideWinnerMarks() {
-  makeInvisible("win-line-area");
-  makeInvisible("horizontal-top");
-  makeInvisible("horizontal-middle");
-  makeInvisible("horizontal-bottom");
-  makeInvisible("vertical-left");
-  makeInvisible("vertical-center");
-  makeInvisible("vertical-right");
-  makeInvisible("diagonal-up");
-  makeInvisible("diagonal-down");
-  makeInvisible("cats-game");
+  makeInvisible('win-line-area');
+  makeInvisible('horizontal-top');
+  makeInvisible('horizontal-middle');
+  makeInvisible('horizontal-bottom');
+  makeInvisible('vertical-left');
+  makeInvisible('vertical-center');
+  makeInvisible('vertical-right');
+  makeInvisible('diagonal-up');
+  makeInvisible('diagonal-down');
+  makeInvisible('cats-game');
 }
